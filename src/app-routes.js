@@ -12,13 +12,5 @@ export default [
   {
     path: '/home',
     component: HomePage
-  },
-  {
-    path: '/formOne',
-    component: formOne
-  },
-  {
-    path: '/formTwo',
-    component: formTwo
   }
   ];
