@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
-    "devextreme": "19.1-stable",
-    "devextreme-react": "19.1-stable",
+    "devextreme": "^19.1.12",
+    "devextreme-react": "^19.1.12",
     "devextreme-themebuilder": "19.1-stable",
     "node-sass": "^4.11.0",
     "react": "^16.9.0",

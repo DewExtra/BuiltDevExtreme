@@ -12,11 +12,9 @@ export default class LoginForm extends React.Component {
     super(props);
 
     this.state = {
-      login: '',
-      password: ''
+      login: 'admin',
+      password: 'admin'
     };
-
-
   }
 
   render() {
@@ -31,6 +29,7 @@ export default class LoginForm extends React.Component {
         </div>
         <div className={'dx-field'}>
           <TextBox
+            onKeyDown={this.keyPress}
             value={login}
             onValueChanged={this.loginChanged}
             placeholder={'Login'}
@@ -43,6 +42,7 @@ export default class LoginForm extends React.Component {
         </div>
         <div className={'dx-field'}>
           <TextBox
+            onKeyDown={this.keyPress}
             mode={'password'}
             value={password}
             onValueChanged={this.passwordChanged}
@@ -74,6 +74,18 @@ export default class LoginForm extends React.Component {
       </ValidationGroup>
     );
   }
+  keyPress = e => {
+    if (e.event.key === 'Enter') {
+      debugger
+      const { login, password } = this.state;
+      if (login == 'admin' && password == 'admin') {
+        this.props.onLoginClick(login, password);
+        // e.validationGroup.reset();
+      } else {
+        alert('กรุณาตรวจสอบ username or password')
+      }
+    }
+  }
 
   loginChanged = e => {
     this.setState({ login: e.value });
@@ -95,79 +107,31 @@ export default class LoginForm extends React.Component {
       alert('กรุณาตรวจสอบ username or password')
     }
 
-  //   let param =
-  //   {
-  //     "username": "admin",
-  //     "password": "BR5gxjEIQH+ztmArmZ/EPw==",
-  //   }
+      let param =
+      {
+        "username": "admin",
+        "password": "admin",
+      }
 
-  //   fetch('http://www.truckq_api.laemchabangport.com:8043/TruckQ/Backend/DEV/truckq.master_user.api/api/v1/masteruser/filter', {
-  //     method: "post",
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8",
-  //       "Access-Control-Allow-Origin": "*",
-  //       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxjYmEwYWRtIiwiZ3JvdXAiOiIxIiwidHlwZSI6InAiLCJwb3J0IjoiTENCQTAiLCJuYmYiOjE2MDAyNTM5MzUsImV4cCI6MTkxNTYxMzkzNSwiaWF0IjoxNjAwMjUzOTM1fQ.SioBLRhW6nPS9r07r47Y1jJGysi2z_2NTdbQk2A6_08" //`Bearer ${storage.tk}`
-  //     },
-  //     body: JSON.stringify(param),
-  //   }).then(response => response.json())
-  //     .then(result => {
-  //       if (result.response == null ) {
-  //         this.props.onLoginClick(login, password);
-  //         args.validationGroup.reset();
-  //       } else {
-  //         alert('กรุณาตรวจสอบ username or password')
-  //       }
+      fetch('http://www.truckq_api.laemchabangport.com:8043/TruckQ/Backend/DEV/truckq.master_user.api/api/v1/masteruser/filter', {
+        
+        method: "post",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxjYmEwYWRtIiwiZ3JvdXAiOiIxIiwidHlwZSI6InAiLCJwb3J0IjoiTENCQTAiLCJuYmYiOjE2MDAyNTM5MzUsImV4cCI6MTkxNTYxMzkzNSwiaWF0IjoxNjAwMjUzOTM1fQ.SioBLRhW6nPS9r07r47Y1jJGysi2z_2NTdbQk2A6_08" //`Bearer ${storage.tk}`
+        },
+        body: JSON.stringify(param),
+      }).then(response => response.json())
+        .then(result => {
+          if (result.response == null ) {
+            this.props.onLoginClick(login, password);
+            args.validationGroup.reset();
+          } else {
+            alert('กรุณาตรวจสอบ username or password')
+          }
 
-  //     });
-  // }
-  // let getparams = { login, password };
-  // let getMethod = "POST";
-  // //return axios.get(`${api}`, {
-  // fetch('http://kascoit.ddns.me:99/Amazon_MasterAPI/api/User/addUser', {
-  //   method: getMethod,
-  //   body: JSON.stringify(getparams),
-  //   mode: 'no-cors',
-  //   headers: {
-  //     "Content-Type": "application/json; charset=utf-8",
-  //     "Access-Control-Allow-Origin": "*"
-  //   }
-  // })
-  //   .then(response => response.json())
-  //   .catch(err => {
-  //     console.log(err);
-  //   });
-
-
-
-  // this.setState({ login: response.data[0].tagOutPick_No });
-  // this.setState({ password: response.data[1].tagOutPick_No });
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
-  // };
-
-  //  componentDidMount() {
-  //     axios.post('http://kascoit.ddns.me:99/Amazon_MasterAPI/api/User/addUser', {
-  //       UserName: 'adminBank',
-  //       UserPassword: 'adminBank'
-  //   })
-  //   .then(response => {
-  //       // this.setState({ login: response.data[0].tagOutPick_No });
-  //       // this.setState({ password: response.data[1].tagOutPick_No });
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // };
-
-  // axios.get('https://dog.ceo/api/breeds/image/random') 
-  // .then(response => {
-  //   this.setState({ login: response.data.message });
-  //   this.setState({ password: response.data.message });
-  // })
-  // .catch(error => {
-  //   console.log(error);
-  // });
+        });
+    
   }
 }

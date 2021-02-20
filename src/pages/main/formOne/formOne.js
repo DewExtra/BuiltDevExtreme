@@ -8,77 +8,65 @@ import DataGrid, {
 } from 'devextreme-react/data-grid';
 
 export default class extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      getData: [],
+    }
+  }
+  componentDidMount() {
+    let param = {}
+    fetch('http://www.truckq_api.laemchabangport.com:8043/TruckQ/Backend/DEV/truckq.master_user.api/api/v1/masteruser/filter', {
 
-  dataSource_x = {
-    store: {
-     type: 'array',
-      key: 'userIndex',
-      url: 'http://kascoit.ddns.me:99/Amazon_MasterAPI/api/User/addUser'
-    },
-    select: [
-      'userIndex',
-      'userGroupName',  
-      'isActive'
-    ]
-  };
-
-  dataSource = {
-    store: {
-      type: 'odata',
-      key: 'Task_ID',
-      url: 'https://js.devexpress.com/Demos/DevAV/odata/Tasks'
-    },
-    expand: 'ResponsibleEmployee',
-    select: [
-      'Task_ID',
-      'Task_Subject',
-      'Task_Start_Date',
-      'Task_Due_Date',
-      'Task_Status',
-      'Task_Priority',
-      'Task_Completion',
-      'ResponsibleEmployee/Employee_Full_Name'
-    ]
-  };
-
-  priorities = [
-    { name: 'High', value: 4 },
-    { name: 'Urgent', value: 3 },
-    { name: 'Normal', value: 2 },
-    { name: 'Low', value: 1 }
-  ];
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "*",
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxjYmEwYWRtIiwiZ3JvdXAiOiIxIiwidHlwZSI6InAiLCJwb3J0IjoiTENCQTAiLCJuYmYiOjE2MDAyNTM5MzUsImV4cCI6MTkxNTYxMzkzNSwiaWF0IjoxNjAwMjUzOTM1fQ.SioBLRhW6nPS9r07r47Y1jJGysi2z_2NTdbQk2A6_08" //`Bearer ${storage.tk}`
+      },
+      body: JSON.stringify(param),
+    }).then(response => response.json())
+      .then(result => {
+        debugger
+        if (result.items != null) {
+          this.setState({
+            getData: result.items
+          })
+        }
+      });
+  }
 
   render() {
     return (
       <React.Fragment>
         <h2 className={'content-block'}>Test Data</h2>
 
-      
         <DataGrid
           className={'dx-card wide-card'}
-          dataSource={this.dataSource_x}
+          dataSource={this.state.getData}
           showBorders={false}
           focusedRowEnabled={true}
           defaultFocusedRowIndex={0}
           columnAutoWidth={true}
           columnHidingEnabled={true}
+          keyExpr={'userCode'}
         >
           <Paging defaultPageSize={10} />
           <Pager showPageSizeSelector={true} showInfo={true} />
           <FilterRow visible={true} />
 
-          <Column dataField={'userIndex'} width={90} hidingPriority={2} />
           <Column
-            dataField={'userGroupName'}
-            width={190}
-            caption={'userGroupName'}
-            hidingPriority={8}
+            dataField={'userCode'}
+            caption={'userCode'}
           />
           <Column
-            dataField={'isActive'}
-            caption={'isActive'}
-            hidingPriority={6}
-          />     
+            dataField={'username'}
+            caption={'username'}
+          />
+          <Column
+            dataField={'fullName'}
+            caption={'fullName'}
+          />
         </DataGrid>
       </React.Fragment>
     );

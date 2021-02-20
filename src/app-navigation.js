@@ -20,32 +20,10 @@ export const navigation = [
         text: 'formOne',
         path: '/formOne'
       },
-      {
-        text: 'formTwo',
-        path: '/formTwo'
-      }
-    ]
-  },
-  {
-    text: 'Menu2',
-    icon: 'check',
-    items: [
-      {
-        text: 'Profile2',
-        path: '/profile2'
-      },
-      {
-        text: 'Display-Data2',
-        path: '/display-data2'
-      },
-      {
-        text: 'formOne2',
-        path: '/formOne2'
-      },
-      {
-        text: 'formTwo2',
-        path: '/formTwo2'
-      }
+      // {
+      //   text: 'formTwo',
+      //   path: '/formTwo'
+      // }
     ]
   }
   ];
