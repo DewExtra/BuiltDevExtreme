@@ -1,6 +1,5 @@
 import { HomePage, DisplayDataPage, ProfilePage } from './pages';
-import formOne from './pages/main/formOne/formOne';
-import formTwo from './pages/main/formTwo/formTwo';
+
 export default [
   {
     path: '/display-data',
