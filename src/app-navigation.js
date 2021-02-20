@@ -15,15 +15,7 @@ export const navigation = [
       {
         text: 'Display-Data',
         path: '/display-data'
-      },
-      {
-        text: 'formOne',
-        path: '/formOne'
-      },
-      // {
-      //   text: 'formTwo',
-      //   path: '/formTwo'
-      // }
+      }
     ]
   }
   ];
