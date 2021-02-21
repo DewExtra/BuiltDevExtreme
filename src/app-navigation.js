@@ -35,6 +35,10 @@ export const navigation = [
       {
         path: '/subdistrictForm',
         text: 'subdistrictForm'
+      },
+      {
+        path: '/popup',
+        text: 'popup'
       }
     ]
   }

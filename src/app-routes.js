@@ -6,6 +6,7 @@ import groupForm from './pages/main/groupForm/groupForm';
 import provinceForm from './pages/main/provinceForm/provinceForm';
 import districtForm from './pages/main/districtForm/districtForm';
 import subdistrictForm from './pages/main/subdistrictForm/subdistrictForm';
+import popup from './pages/main/popup/popup';
 
 export default [
   {
@@ -39,5 +40,9 @@ export default [
   {
     path: '/subdistrictForm',
     component: subdistrictForm
+  },
+  {
+    path: '/popup',
+    component: popup
   }
   ];
