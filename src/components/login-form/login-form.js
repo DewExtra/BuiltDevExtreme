@@ -12,8 +12,8 @@ export default class LoginForm extends React.Component {
     super(props);
 
     this.state = {
-      login: '',
-      password: ''
+      login: 'admin',
+      password: 'admin'
     };
   }
 
@@ -99,5 +99,32 @@ export default class LoginForm extends React.Component {
     } else {
       alert('กรุณาตรวจสอบ username or password')
     }
+
+    // let param =
+    // {
+    //   "username": this.state.login,
+    //   "password": this.state.password,
+    // }//BR5gxjEIQH+ztmArmZ/EPw==
+    // debugger
+    // // fetch('http://192.168.1.33/api/v1/employee/filter', {
+    //   fetch('http://www.truckq_api.laemchabangport.com:8043/TruckQ/Backend/DEV/truckq.master_user.api/api/v1/masteruser/filter', {
+    //   method: "post",
+    //   headers: {
+    //     "Content-Type": "application/json; charset=utf-8",
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxjYmEwYWRtIiwiZ3JvdXAiOiIxIiwidHlwZSI6InAiLCJwb3J0IjoiTENCQTAiLCJuYmYiOjE2MDAyNTM5MzUsImV4cCI6MTkxNTYxMzkzNSwiaWF0IjoxNjAwMjUzOTM1fQ.SioBLRhW6nPS9r07r47Y1jJGysi2z_2NTdbQk2A6_08" //`Bearer ${storage.tk}`
+    //   },
+    //   body: JSON.stringify(param),
+    // }).then(response => response.json())
+    //   .then(result => {
+    //     if (result.response != null) {
+    //       this.props.onLoginClick(this.state.login, this.state.password);
+    //       args.validationGroup.reset();
+    //     } else {
+    //       alert('กรุณาตรวจสอบ username or password')
+    //     }
+
+    //   });
+
   }
 }

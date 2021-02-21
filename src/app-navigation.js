@@ -5,16 +5,36 @@ export const navigation = [
     icon: 'home'
   },
   {
-    text: 'Menu',
+    text: 'Master',
     icon: 'folder',
     items: [
       {
-        text: 'Profile',
-        path: '/profile'
+        path: '/employeeForm',
+        text: 'Employee'
       },
       {
-        text: 'Display-Data',
-        path: '/display-data'
+        path: '/companyForm',
+        text: 'Company'
+      },
+      {
+        path: '/employeeTypeForm',
+        text: 'EmployeeType'
+      },
+      {
+        path: '/groupForm',
+        text: 'Group'
+      },
+      {
+        path: '/provinceForm',
+        text: 'Province'
+      },
+      {
+        path: '/districtForm',
+        text: 'District'
+      },
+      {
+        path: '/subdistrictForm',
+        text: 'subdistrictForm'
       }
     ]
   }

@@ -23,7 +23,7 @@ export default () => {
     <React.Fragment>
       <h2 className={'content-block'}>Profile</h2>
 
-      <div className={'content-block dx-card responsive-paddings'}>
+      {/* <div className={'content-block dx-card responsive-paddings'}>
         <div className={'form-avatar'}>
           <img
             alt={''}
@@ -33,7 +33,7 @@ export default () => {
           />
         </div>
         <span>{notes}</span>
-      </div>
+      </div> */}
 
       <div className={'content-block dx-card responsive-paddings'}>
         <Form
